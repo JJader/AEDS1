@@ -1,3 +1,7 @@
+# Programa desenvolvido por :
+# Jamisson Jader M. P. Junior 
+# Lineker Aguiar Alcantara  
+
 def TrocaLetra(a,b, crip):
     if crip:
         c = ord(a) + ord(b)
@@ -13,8 +17,14 @@ def TrocaLetra(a,b, crip):
 
 def Criptografa(arq, crip):
     import os
-    file = open(arq, 'r')
-    newFile = open(crip, 'w')
+    
+    try:
+        file = open(arq, 'r')
+        newFile = open(crip, 'w')
+    except:
+        print("Não existe os arquivos necessário")
+        return
+    
     chave = input("Digite a chave desejada: ")
     linha = file.read()
 
@@ -37,8 +47,13 @@ def Criptografa(arq, crip):
 
 def Descriptografar(crip, descrip):
     import os
-    file = open(crip, 'r')
-    newFile = open(descrip, 'w')
+    try:
+        file = open(crip, 'r')
+        newFile = open(descrip, 'w')
+    except:
+        print("Não existe os arquivos necessário")
+        return
+    
     chave = input("Digite a chave desejada: ")
     linha = file.read()
 
@@ -60,6 +75,7 @@ def Descriptografar(crip, descrip):
 
 import os
 os.system("cls")
+
 arquivoName = "arquivo.txt"
 criptografiaName = "crip.txt"
 descriptografiaName = "descrip.txt"
